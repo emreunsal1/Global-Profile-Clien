@@ -1,0 +1,15 @@
+//pages
+@import url("./pages/register.scss");
+
+//components
+
+*,
+*::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}

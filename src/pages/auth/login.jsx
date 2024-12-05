@@ -1,6 +1,7 @@
 import React from "react";
 import AUTH from "../../services/auth";
 import { useNavigate } from "react-router-dom";
+import { Button, Checkbox, Form, Input } from "antd";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -20,24 +21,50 @@ export default function Login() {
     <div>
       <div className="personal-login">
         <div className="title">Personal</div>
-        <form onSubmit={loginFormSubmitHandler}>
-          <label>Email:</label>
-          <input name="email" placeholder="abc@gmail.com"></input>
-          <label>Password:</label>
-          <input name="password"></input>
-          <button>Login</button>
-        </form>
+        <Form onSubmit={loginFormSubmitHandler}>
+          <Form.Item
+            rules={[
+              { required: true, message: "Please enter your email!" },
+              { type: "email", message: "Please enter a valid email!" },
+            ]}
+            label="Email"
+            name="email"
+          >
+            <Input placeholder="abc@gmail.com" />
+          </Form.Item>
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={[{ required: true, message: "Please enter your password!" }]}
+          >
+            <Input type="password" placeholder="*********" />
+          </Form.Item>
+          <Button>Login!</Button>
+        </Form>
       </div>
       <div className="customer-login">
         <div className="title">Customer</div>
-        <form>
-          <label>Email:</label>
-          <input placeholder="abc@gmail.com"></input>
-          <label>Password:</label>
-          <input placeholder="*********"></input>
-        </form>
+        <Form>
+          <Form.Item
+            rules={[
+              { required: true, message: "Please enter your email!" },
+              { type: "email", message: "Please enter a valid email!" },
+            ]}
+            label="Email"
+            name="email"
+          >
+            <Input placeholder="abc@gmail.com" />
+          </Form.Item>
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={[{ required: true, message: "Please enter your password!" }]}
+          >
+            <Input type="password" placeholder="*********" />
+          </Form.Item>
+        </Form>
       </div>
-      <div onClick={() => navigate("/auth/register")}>register</div>
+      <Button onClick={() => navigate("/auth/register")}>register</Button>
     </div>
   );
 }

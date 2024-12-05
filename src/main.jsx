@@ -6,6 +6,7 @@ import Home from "./pages/home/index.jsx";
 import Login from "./pages/auth/login.jsx";
 import Register from "./pages/auth/register.jsx";
 import Main from "./pages/main/index.jsx";
+import "./style/index.scss";
 
 const router = createBrowserRouter([
   {
